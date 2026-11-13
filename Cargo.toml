@@ -1,0 +1,15 @@
+[workspace]
+resolver = "2"
+members = ["crates/core"]
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+license = "Apache-2.0"
+repository = "https://github.com/LAAGU/PotentCipher"
+
+# Argon2 is the slow part of unlock; keep it optimised even in debug test runs.
+[profile.dev.package.argon2]
+opt-level = 3
+[profile.dev.package.blake2]
+opt-level = 3
